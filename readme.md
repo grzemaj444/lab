@@ -46,17 +46,13 @@ Below is the database schema used in the project:
 
 ```mermaid
 graph TD;
-  [#### Users Table
-| Column | Type | Description |
-|--------|------|-------------|
-| id | INT | Primary key |
-| name | VARCHAR | User's name |
-| email | VARCHAR | User's email |] -->|Has| B[Orders];
-  B -->|Contains| C[Products];
-  A -->|Manages| D[Payments];
-  B -->|Shipped By| E[Shipping];
-  A ---|Many-to-Many| F[User_Roles];
-  F ---|Many-to-Many| G[Roles];
+  A["Users | id | name | email"] -->|Has| B["Orders | id | user_id | total_price"];
+  B -->|Contains| C["Products | id | name | price"];
+  A -->|Manages| D["Payments | id | user_id | amount"];
+  B -->|Shipped By| E["Shipping | id | order_id | status"];
+  A ---|Many-to-Many| F["User_Roles | user_id | role_id"];
+  F ---|Many-to-Many| G["Roles | id | name"];
+
 ```
 
 ### 📋 Database Tables
