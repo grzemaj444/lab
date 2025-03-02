@@ -50,7 +50,51 @@ graph TD;
   B -->|Contains| C[Products];
   A -->|Manages| D[Payments];
   B -->|Shipped By| E[Shipping];
+  A ---|Many-to-Many| F[User_Roles];
+  F ---|Many-to-Many| G[Roles];
 ```
+
+### 📋 Database Tables
+
+#### Users Table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INT | Primary key |
+| name | VARCHAR | User's name |
+| email | VARCHAR | User's email |
+
+#### Orders Table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INT | Primary key |
+| user_id | INT | Foreign key referencing Users |
+| total_price | DECIMAL | Total order price |
+
+#### Products Table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INT | Primary key |
+| name | VARCHAR | Product name |
+| price | DECIMAL | Product price |
+
+#### Payments Table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INT | Primary key |
+| user_id | INT | Foreign key referencing Users |
+| amount | DECIMAL | Payment amount |
+
+#### User_Roles Table (Many-to-Many Relationship)
+| Column | Type | Description |
+|--------|------|-------------|
+| user_id | INT | Foreign key referencing Users |
+| role_id | INT | Foreign key referencing Roles |
+
+#### Roles Table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INT | Primary key |
+| name | VARCHAR | Role name |
 
 ## 📝 License
 
