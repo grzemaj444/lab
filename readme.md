@@ -46,7 +46,12 @@ Below is the database schema used in the project:
 
 ```mermaid
 graph TD;
-  A[Users] -->|Has| B[Orders];
+  [#### Users Table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INT | Primary key |
+| name | VARCHAR | User's name |
+| email | VARCHAR | User's email |] -->|Has| B[Orders];
   B -->|Contains| C[Products];
   A -->|Manages| D[Payments];
   B -->|Shipped By| E[Shipping];
