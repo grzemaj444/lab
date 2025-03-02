@@ -40,6 +40,18 @@ The project was built using:
 - 📚 [Technology 2](https://example.com)
 - 🛠️ [Technology 3](https://example.com)
 
+## 📊 Database Schema
+
+Below is the database schema used in the project:
+
+```mermaid
+graph TD;
+  A[Users] -->|Has| B[Orders];
+  B -->|Contains| C[Products];
+  A -->|Manages| D[Payments];
+  B -->|Shipped By| E[Shipping];
+```
+
 ## 📝 License
 
 The project is available under the MIT / GPL / other license. See [LICENSE](LICENSE) for more details.
